@@ -1,10 +1,10 @@
 #include <WiFi.h>
-String apiKey = "testcitarum3";                               //API Key Patriot
-String alamatWeb = "159.89.199.182/input?key=";
+String apiKey = "";                               //API Key Patriot
+String alamatWeb = "webpatriot/input?key=";
 
 const char* ssid = "nais";                                    //ini nama wifinya
 const char* pass = "safik123";                                //ini password wifinya
-const char* server = "159.89.199.182";
+const char* server = "webpatriot";
 
 WiFiClient client;
 int adc;                                                      //variabel dummy
@@ -43,7 +43,7 @@ void kirimData(){
     alamatPost += "\r\n\r\n";
 
     client.print("GET " + alamatPost + " HTTP/1.1\r\n");
-    client.print("Host: 159.89.199.182\n");
+    client.print("Host: " + server + "\n");
     client.print("Connection: close\n");
     client.print("Content-Type: application/x-www-form-urlencoded\n");
     client.print("Content-Length: ");
